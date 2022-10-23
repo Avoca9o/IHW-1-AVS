@@ -1,29 +1,28 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int main()
-{
-    unsigned int n;
-    scanf("%u", &n);
-    int a[n];
-    for (unsigned int i = 0; i < n; ++i) {
-        scanf("%d", &a[i]);
+int a[999999], b[999999];
+
+int main(int argc, char* argv[]) {
+    if (argc >= 1000000 || argc == 0) {
+          printf("not enough space or empty array\n");
+          return 0;
     }
-    int mx = a[0];
-    for (unsigned int i = 1; i < n; ++i) {
+    int i = 0, mx = atoi(argv[0]), sz = argc - 1;
+    for (i = 0; i < sz; ++i) {
+        a[i] = atoi(argv[i + 1]);
         if (a[i] > mx) {
             mx = a[i];
         }
     }
-    int b[n];
-    for (unsigned int i = 0; i < n; ++i) {
-        if (a[i] < 0) {
+    for (i = 0; i < sz; ++i) {
+        b[i] = a[i];
+        if (b[i] < 0) {
             b[i] = mx;
-        } else {
-            b[i] = a[i];
         }
     }
-    for (unsigned int i = 0; i < n; ++i) {
-        printf("%d ", b[i]);
+    for (i = 0; i < sz; ++i) {
+    	printf("%d ", b[i]);
     }
-    return 0;
+    printf("\n");
 }
