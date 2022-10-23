@@ -11,8 +11,8 @@
 4. Также файл main.c скомпилирован в ассемблерную программу с учетом оптимизации путем команды > gcc -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions main.c -S -o main_opt.s. Файл main_opt.s тоже прикреплен. 
 5. Далее программу main.c скомпилирован в исполняемый файл main_opt.out путем команды > gcc -masm=intel -fno-asynchronous-unwind-tables -fno-jump-tables -fno-stack-protector -fno-exceptions main.c -o main_opt.out.
 6. Остается только протестировать оба исполняемых файла. оба файла main.out и main_opt.out прикреплены, поэтому можно убедиться в правильности приведенных данных. 
-./main.out 1 2 3 4 5
-1 2 3 4 5 
+./main.out 1 2 3 4 5 \n
+1 2 3 4 5 \n
 ./main_opt.out 1 2 3 4 5
 1 2 3 4 5 
 ./main.out -1 2 3 0 -2
@@ -31,11 +31,9 @@ not enough space or empty array
 -2 -2 -2 -2 -2 
 ./main_opt.out -5 -6 -3 -2 -7
 -2 -2 -2 -2 -2 
-
-Как видно, программы работают идентично.
-
-
 ./main.out 8 8 9 -1 -1000000 4 5 6
 8 8 9 9 9 4 5 6 
 ./main_opt.out 8 8 9 -1 -1000000 4 5 6
 8 8 9 9 9 4 5 6 
+
+Как видим, программы работают идентично
